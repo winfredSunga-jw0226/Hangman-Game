@@ -111,6 +111,12 @@ var hangMan = {
   },
   decrementRemainingGuesses : function() {
     this.remainingGuesses--; // = this.remainingGuesses - 1;
+  },
+  resetLettersGuessed : function() {
+    this.lettersGuessed = [];
+  },
+  resetRemainingGuesses : function() {
+    this.remainingGuesses = 12;
   }
 
 };
@@ -147,6 +153,18 @@ document.onkeyup = function(event) {
     console.log("invisible letters " + hangMan.invisibleLetters);
     console.log("display word " + hangMan.displayWord);
     hangMan.displayWordToGuess();
+
+    //check if the player wins or not, and switch to new word
+    if(hangMan.displayWord.indexOf("_") === -1 && hangMan.wordsAlreadyUsed.length !== hangMan.serengetiAnimals.length) {
+      hangMan.wins++;
+      hangMan.remainingGuesses = 12;
+      hangMan.pickRandomWord();
+      hangMan.displayWins();
+      hangMan.displayLoses();
+      hangMan.resetLettersGuessed();
+      hangMan.resetRemainingGuesses();
+      alert("You guessed the word!");
+    }
   } else if(hangMan.lettersGuessed.indexOf(playerInput) === -1 && hangMan.currentWordString.indexOf(playerInput) === -1) {
     hangMan.lettersGuessed.push(playerInput);
     hangMan.displayGuessedLetters();
@@ -154,28 +172,50 @@ document.onkeyup = function(event) {
     hangMan.displayRemainingGuesses();
     console.log("remaining guesses: " + hangMan.remainingGuesses)
     //console.log("letters guessed : " + hangMan.lettersGuessed);
-  }
-
-  //check if the player wins or not, and switch to new word
-  if(hangMan.displayWord.indexOf("_") === -1 && hangMan.wordsAlreadyUsed.length !== hangMan.serengetiAnimals.length) {
-    alert("You guessed the word!");
-    hangMan.wins++;
-    hangMan.remainingGuesses = 12;
-    hangMan.pickRandomWord();
-    hangMan.displayWins();
-    hangMan.displayLoses();
-  } else if (hangMan.remainingGuesses === 0 && hangMan.wordsAlreadyUsed.length !== hangMan.serengetiAnimals.length) {
-    alert("You failed to guess the word!");
+    
+    //check if the player wins or not, and switch to new word
+    if (hangMan.remainingGuesses === 0 && hangMan.wordsAlreadyUsed.length !== hangMan.serengetiAnimals.length) {
     hangMan.loses++;
     hangMan.remainingGuesses = 12;
     hangMan.pickRandomWord();
     hangMan.displayWins();
     hangMan.displayLoses();
+    hangMan.resetLettersGuessed();
+    hangMan.resetRemainingGuesses();
+    alert("You failed to guess the word!");
+    }
   }
-
-
-
 }
+  // //check if the player wins or not, and switch to new word
+  // if(hangMan.displayWord.indexOf("_") === -1 && hangMan.wordsAlreadyUsed.length !== hangMan.serengetiAnimals.length) {
+  //   hangMan.unhideLetter(playerInput);
+  //   hangMan.lettersGuessed.push(playerInput);
+  //   hangMan.displayGuessedLetters();
+  //   hangMan.decrementRemainingGuesses();
+  //   hangMan.displayRemainingGuesses();
+  //   alert("You guessed the word!");
+  //   hangMan.wins++;
+  //   hangMan.remainingGuesses = 12;
+  //   hangMan.pickRandomWord();
+  //   hangMan.displayWins();
+  //   hangMan.displayLoses();
+  //   hangMan.resetLettersGuessed();
+  //   hangMan.resetRemainingGuesses();
+  // } else if (hangMan.remainingGuesses === 0 && hangMan.wordsAlreadyUsed.length !== hangMan.serengetiAnimals.length) {
+  //   hangMan.lettersGuessed.push(playerInput);
+  //   hangMan.displayGuessedLetters();
+  //   hangMan.decrementRemainingGuesses();
+  //   hangMan.displayRemainingGuesses();
+  //   alert("You failed to guess the word!");
+  //   hangMan.loses++;
+  //   hangMan.remainingGuesses = 12;
+  //   hangMan.pickRandomWord();
+  //   hangMan.displayWins();
+  //   hangMan.displayLoses();
+  //   hangMan.resetLettersGuessed();
+  //   hangMan.resetRemainingGuesses();
+  // }
+
 
 //Pseudocode :
 //variables for - score, current word to guess, words to guess,  guesses remaining, letters guessed, valid letters (alphabet only, exclude any other keys)
