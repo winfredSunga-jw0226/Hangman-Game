@@ -23,10 +23,11 @@
 }
 
 #content_container {
-  border : 3px solid white;
+  border : 2px dotted white;
   width : 500px;
   height : 400px;
   margin : 30px auto;
+  padding : 15px;
 
 }
 h1 {
