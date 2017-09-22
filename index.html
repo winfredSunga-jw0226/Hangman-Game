@@ -2,32 +2,44 @@
 <html>
 <head>
   <title>Hang Man Game - Serengeti Theme</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-  <h1>Hang Man Game!</h1>
-  <br>
-  <div>
-    <h4>Wins</h4>
-    <p id="wins">*</p>
+  <div id="main_container">
+    <h1>Hang Man Game - Serengeti Edition!</h1>
+    <br>
+    <div id="content_container">
+      <div>
+        <h4>Wins :</h4>
+        <p id="wins">*</p>
+      </div>
+      <br>
+      <br>
+      <div>
+        <h4>Loses :</h4>
+        <p id="loses">*</p>
+      </div>
+      <br>
+      <br>
+      <div>
+        <h4>Serengeti Animal : </h4>
+        <p id="current_word">...</p>
+      </div>
+      <br>
+      <br>
+      <div>
+        <h4>Number of guesses remaining :</h4>
+        <p id="remaining_guesses">*</p>
+      </div>
+      <br>
+      <br>
+      <div>  
+        <h4>Letters already guessed :</h4>
+        <p id="letters_guessed"></p>  
+      </div>      
+    </div>
   </div>
-   <div>
-    <h4>Loses</h4>
-    <p id="loses">*</p>
-  </div>
-  <div>
-    <h4>Current Word : </h4>
-    <p id="current_word">...</p>
-  </div>
-  <div>
-    <h4>Number of guesses remaining</h4>
-    <p id="remaining_guesses">*</p>
-  </div>
-  <div>  
-    <h4>Letters already guessed :</h4>
-    <p id="letters_guessed"></p>  
-  </div>
-  
-
 <script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
 </html>

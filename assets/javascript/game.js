@@ -172,7 +172,7 @@ document.onkeyup = function(event) {
     hangMan.displayRemainingGuesses();
     console.log("remaining guesses: " + hangMan.remainingGuesses)
     //console.log("letters guessed : " + hangMan.lettersGuessed);
-    
+
     //check if the player wins or not, and switch to new word
     if (hangMan.remainingGuesses === 0 && hangMan.wordsAlreadyUsed.length !== hangMan.serengetiAnimals.length) {
     hangMan.loses++;

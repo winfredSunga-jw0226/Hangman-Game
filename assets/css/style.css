@@ -1,0 +1,52 @@
+
+
+#main_container {
+  border : 5px dashed white;
+  width : 960px;
+  height : 500px
+  margin : 0px auto;
+  /*background : gray;*/
+  display : block;
+  position : relative;
+}
+
+#main_container::after {
+  content : "";
+  background: url("https://www.zoomtanzania.com/blog/wp-content/uploads/sites/2/2017/04/Serengeti_National_Park4_1.jpg");
+  opacity : 0.5;
+  position : absolute;
+  top : 0;
+  left : 0;
+  bottom : 0;
+  right : 0;
+  z-index : -1;
+}
+
+#content_container {
+  border : 3px solid white;
+  width : 500px;
+  height : 400px;
+  margin : 30px auto;
+
+}
+h1 {
+  font-size : 30px;
+  font-family : font-family: 'Georgia', Times, Times New Roman, serif;
+  color : black;
+  text-align : center;
+  opacity : 1.0;
+}
+
+h4 {
+  font-size : 25px;
+  font-family : font-family: 'Georgia', Times, Times New Roman, serif;
+  color : black;
+  opacity : 1.0;
+}
+
+p {
+  font-size : 20px;
+  font-family : font-family: 'Georgia', Times, Times New Roman, serif;
+  color : black;
+  opacity : 1.0;
+}
