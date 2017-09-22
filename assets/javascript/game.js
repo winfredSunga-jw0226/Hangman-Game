@@ -2,7 +2,6 @@ var hangMan = {
   serengetiAnimals : ["porcupine","hedgehog","badger","hippopotamus","gazelle","rhinoceros","waterbuck","wildebeest","flamingo","antelope","hornbill","chameleon","babboon","buffalo","lion","monkey","tiger", "cheetah", "impala"],
   wins : 0,
   loses : 0,
-  // wordsAvailableForGuessing : ['lion'],
   wordsAlreadyUsed : [],
   currentWordString : "",
   currentWordLetters : [], //this.currentWordString.split(''),
@@ -78,9 +77,6 @@ var hangMan = {
 
     // display word on the game console
     this.displayWordToGuess();
-
-
-
   },
   displayWordToGuess : function() {
     
@@ -124,9 +120,7 @@ var hangMan = {
 hangMan.displayWins();
 hangMan.displayLoses();
 hangMan.pickRandomWord();
-//hangMan.displayWordToGuess();
 hangMan.displayRemainingGuesses();
-//hangMan.decrementRemainingGuesses();
 
 //hangMan.listWordsAvailableForGuessing();
 console.log(hangMan.currentWordString);
@@ -148,10 +142,6 @@ document.onkeyup = function(event) {
     hangMan.displayGuessedLetters();
     hangMan.decrementRemainingGuesses();
     hangMan.displayRemainingGuesses();
-    console.log("remaining guesses: " + hangMan.remainingGuesses)
-    console.log("letters guessed : " + hangMan.lettersGuessed);
-    console.log("invisible letters " + hangMan.invisibleLetters);
-    console.log("display word " + hangMan.displayWord);
     hangMan.displayWordToGuess();
 
     //check if the player wins or not, and switch to new word
@@ -164,7 +154,7 @@ document.onkeyup = function(event) {
       hangMan.resetLettersGuessed();
       hangMan.resetRemainingGuesses();
       alert("You guessed the word!");
-      
+
       //adding sound effect
       var sound = new Audio('assets/audio/lion_king_chant.mp3'); 
       sound.play();
@@ -175,7 +165,6 @@ document.onkeyup = function(event) {
     hangMan.decrementRemainingGuesses();
     hangMan.displayRemainingGuesses();
     console.log("remaining guesses: " + hangMan.remainingGuesses)
-    //console.log("letters guessed : " + hangMan.lettersGuessed);
 
     //check if the player wins or not, and switch to new word
     if (hangMan.remainingGuesses === 0 && hangMan.wordsAlreadyUsed.length !== hangMan.serengetiAnimals.length) {
@@ -191,36 +180,6 @@ document.onkeyup = function(event) {
   }
 
 }
-  // //check if the player wins or not, and switch to new word
-  // if(hangMan.displayWord.indexOf("_") === -1 && hangMan.wordsAlreadyUsed.length !== hangMan.serengetiAnimals.length) {
-  //   hangMan.unhideLetter(playerInput);
-  //   hangMan.lettersGuessed.push(playerInput);
-  //   hangMan.displayGuessedLetters();
-  //   hangMan.decrementRemainingGuesses();
-  //   hangMan.displayRemainingGuesses();
-  //   alert("You guessed the word!");
-  //   hangMan.wins++;
-  //   hangMan.remainingGuesses = 12;
-  //   hangMan.pickRandomWord();
-  //   hangMan.displayWins();
-  //   hangMan.displayLoses();
-  //   hangMan.resetLettersGuessed();
-  //   hangMan.resetRemainingGuesses();
-  // } else if (hangMan.remainingGuesses === 0 && hangMan.wordsAlreadyUsed.length !== hangMan.serengetiAnimals.length) {
-  //   hangMan.lettersGuessed.push(playerInput);
-  //   hangMan.displayGuessedLetters();
-  //   hangMan.decrementRemainingGuesses();
-  //   hangMan.displayRemainingGuesses();
-  //   alert("You failed to guess the word!");
-  //   hangMan.loses++;
-  //   hangMan.remainingGuesses = 12;
-  //   hangMan.pickRandomWord();
-  //   hangMan.displayWins();
-  //   hangMan.displayLoses();
-  //   hangMan.resetLettersGuessed();
-  //   hangMan.resetRemainingGuesses();
-  // }
-
 
 //Pseudocode :
 //variables for - score, current word to guess, words to guess,  guesses remaining, letters guessed, valid letters (alphabet only, exclude any other keys)
