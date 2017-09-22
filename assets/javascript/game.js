@@ -164,6 +164,10 @@ document.onkeyup = function(event) {
       hangMan.resetLettersGuessed();
       hangMan.resetRemainingGuesses();
       alert("You guessed the word!");
+      
+      //adding sound effect
+      var sound = new Audio('assets/audio/lion_king_chant.mp3'); 
+      sound.play();
     }
   } else if(hangMan.lettersGuessed.indexOf(playerInput) === -1 && hangMan.currentWordString.indexOf(playerInput) === -1) {
     hangMan.lettersGuessed.push(playerInput);
@@ -185,6 +189,7 @@ document.onkeyup = function(event) {
     alert("You failed to guess the word!");
     }
   }
+
 }
   // //check if the player wins or not, and switch to new word
   // if(hangMan.displayWord.indexOf("_") === -1 && hangMan.wordsAlreadyUsed.length !== hangMan.serengetiAnimals.length) {
